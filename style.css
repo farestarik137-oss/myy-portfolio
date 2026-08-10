@@ -708,10 +708,11 @@ body::after {
         top 0.06s linear;
 }
 
-/* Keep custom arrow on buttons and links */
-a,
-button {
-    cursor: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='32' height='32' viewBox='0 0 32 32'%3E%3Cpath d='M4 2 L4 26 L11 19 L16 29 L20 27 L15 17 L25 17 Z' fill='%2358a6ff' stroke='%23ffffff' stroke-width='1.5'/%3E%3C/svg%3E") 4 2, pointer;
+/* Keep the glowing arrow everywhere */
+*,
+*::before,
+*::after {
+    cursor: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='32' height='32' viewBox='0 0 32 32'%3E%3Cpath d='M4 2 L4 26 L11 19 L16 29 L20 27 L15 17 L25 17 Z' fill='%2358a6ff' stroke='%23ffffff' stroke-width='1.5'/%3E%3C/svg%3E") 4 2, auto !important;
 }
 
 /* Mobile */
