@@ -666,15 +666,16 @@ footer p{
 
 }
 /* ============================= */
-/*       GLOWING MOUSE EFFECT    */
+/*      CUSTOM GLOWING ARROW     */
 /* ============================= */
 
+/* Custom blue glowing arrow */
 html,
 body {
-    cursor: auto;
+    cursor: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='32' height='32' viewBox='0 0 32 32'%3E%3Cpath d='M4 2 L4 26 L11 19 L16 29 L20 27 L15 17 L25 17 Z' fill='%2358a6ff' stroke='%23ffffff' stroke-width='1.5'/%3E%3C/svg%3E") 4 2, auto;
 }
 
-/* Glow يتحرك مع الماوس */
+/* Glow behind the arrow */
 body::after {
     content: "";
 
@@ -683,12 +684,12 @@ body::after {
     left: var(--mouse-x, -100px);
     top: var(--mouse-y, -100px);
 
-    width: 25px;
-    height: 25px;
+    width: 30px;
+    height: 30px;
 
     border-radius: 50%;
 
-    background: rgba(88, 166, 255, 0.25);
+    background: rgba(88, 166, 255, 0.18);
 
     box-shadow:
         0 0 10px rgba(88, 166, 255, 0.9),
@@ -698,16 +699,22 @@ body::after {
 
     pointer-events: none;
 
-    z-index: 9999;
+    z-index: 99999;
 
     transform: translate(-50%, -50%);
 
     transition:
-        left 0.08s linear,
-        top 0.08s linear;
+        left 0.06s linear,
+        top 0.06s linear;
 }
 
-/* على الموبايل نخفي التأثير */
+/* Keep custom arrow on buttons and links */
+a,
+button {
+    cursor: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='32' height='32' viewBox='0 0 32 32'%3E%3Cpath d='M4 2 L4 26 L11 19 L16 29 L20 27 L15 17 L25 17 Z' fill='%2358a6ff' stroke='%23ffffff' stroke-width='1.5'/%3E%3C/svg%3E") 4 2, pointer;
+}
+
+/* Mobile */
 @media (max-width: 768px) {
 
     body::after {
