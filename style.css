@@ -665,3 +665,43 @@ footer p{
     }
 
 }
+/* ============================= */
+/*       GLOWING MOUSE CURSOR    */
+/* ============================= */
+
+html,
+body {
+    cursor: auto;
+}
+
+/* شكل الماوس على اللينكات والأزرار */
+a,
+button,
+input,
+textarea {
+    cursor: pointer;
+}
+
+/* تأثير Glow حوالين الماوس */
+body::after {
+    content: "";
+    position: fixed;
+
+    width: 18px;
+    height: 18px;
+
+    border-radius: 50%;
+
+    background: rgba(88, 166, 255, 0.35);
+
+    box-shadow:
+        0 0 10px rgba(88, 166, 255, 0.8),
+        0 0 25px rgba(88, 166, 255, 0.6),
+        0 0 45px rgba(88, 166, 255, 0.4);
+
+    pointer-events: none;
+
+    z-index: 9999;
+
+    transform: translate(-50%, -50%);
+}
