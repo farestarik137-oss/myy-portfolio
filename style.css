@@ -666,7 +666,7 @@ footer p{
 
 }
 /* ============================= */
-/*       GLOWING MOUSE CURSOR    */
+/*       GLOWING MOUSE EFFECT    */
 /* ============================= */
 
 html,
@@ -674,34 +674,48 @@ body {
     cursor: auto;
 }
 
-/* شكل الماوس على اللينكات والأزرار */
-a,
-button,
-input,
-textarea {
-    cursor: pointer;
-}
-
-/* تأثير Glow حوالين الماوس */
+/* Glow يتحرك مع الماوس */
 body::after {
     content: "";
+
     position: fixed;
 
-    width: 18px;
-    height: 18px;
+    left: var(--mouse-x, -100px);
+    top: var(--mouse-y, -100px);
+
+    width: 25px;
+    height: 25px;
 
     border-radius: 50%;
 
-    background: rgba(88, 166, 255, 0.35);
+    background: rgba(88, 166, 255, 0.25);
 
     box-shadow:
-        0 0 10px rgba(88, 166, 255, 0.8),
-        0 0 25px rgba(88, 166, 255, 0.6),
-        0 0 45px rgba(88, 166, 255, 0.4);
+        0 0 10px rgba(88, 166, 255, 0.9),
+        0 0 25px rgba(88, 166, 255, 0.7),
+        0 0 45px rgba(88, 166, 255, 0.5),
+        0 0 70px rgba(88, 166, 255, 0.3);
 
     pointer-events: none;
 
     z-index: 9999;
 
     transform: translate(-50%, -50%);
+
+    transition:
+        left 0.08s linear,
+        top 0.08s linear;
+}
+
+/* على الموبايل نخفي التأثير */
+@media (max-width: 768px) {
+
+    body::after {
+        display: none;
+    }
+
+    html,
+    body {
+        cursor: auto;
+    }
 }
