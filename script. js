@@ -1,4 +1,4 @@
-document.addEventListener("mousemove", function(e) {
+document.addEventListener("mousemove", function (e) {
 
     document.body.style.setProperty(
         "--mouse-x",
